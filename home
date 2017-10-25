@@ -1,0 +1,36 @@
+//codecloud.cdn.speedyrails.net/sites/59f0c5f44a616d0afb000000/image/jpeg/1499879997000/agileteam.jpg
+
+<img src="//codecloud.cdn.speedyrails.net/sites/59f0c5f44a616d0afb000000/image/jpeg/1499879997000/agileteam.jpg" class="" alt="">
+
+<div class="flexslider trim_screen">
+    <ul class="slides" id="home_banner">            
+        <script id="home_banner_template" type="x-tmpl-mustache/text">
+            <li>
+                {{#url}}
+                <a class="banner_image_li" href="{{url}}" >
+                {{/url}}
+                    <img src="{{image_url}}" alt="Banner Image"/>
+                </a>
+            </li>
+        </script>                
+    </ul>        
+</div>
+
+<script>
+$(document).ready(function(e){
+    init(e);
+    function renderAll(){
+        var banners = getBanners();
+        renderBanner('#home_banner_template','#home_banner', banners);
+        
+        setTimeout(function() {
+            show_content();
+        }, 500);
+    
+        $('.flexslider').flexslider({
+            animation: "slide",
+        });
+    }
+    loadMallData(renderAll);
+})
+</script>
